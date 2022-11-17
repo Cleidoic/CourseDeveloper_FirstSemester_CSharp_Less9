@@ -12,10 +12,10 @@ int GetNumber(string message) {
     bool isCorrect = false;
     int result = 0;
     Console.WriteLine(message);
-    while (!isCorrect) {
+    while (!isCorrect || result < 1) {
         isCorrect = int.TryParse(Console.ReadLine(), out result);
-        if (!isCorrect) 
-            Console.WriteLine("Ввели не число или оно слишком большое. Введите заново: ");
+        if (!isCorrect || result < 1) 
+            Console.WriteLine("Ввели число меньше 1 или оно слишком большое. Введите заново: ");
     }
     return result;
 }
